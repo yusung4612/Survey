@@ -16,19 +16,17 @@ public class CorsConfiguration {
 
         config.addAllowedOrigin("http://localhost:3000");
         config.addAllowedOrigin("http://localhost:9092");
+        config.addAllowedOrigin("http://localhost:3060");
         config.addAllowedOrigin("http://localhost:8090");
         config.addAllowedOrigin("http://localhost:8090/submit");
         config.addAllowedOriginPattern("*"); //모든 ip의 응답 허용
         config.addAllowedHeader("*"); //모든 header의 응답 허용
         config.addAllowedMethod("*"); //모든 get, post, put, delete, patch 요청을 허용
         config.addExposedHeader("*");
-//        config.addExposedHeader("Authorization");
         source.registerCorsConfiguration("/",config);
         source.registerCorsConfiguration("/submit",config);
-        source.registerCorsConfiguration("/**",config);
+        source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
 
     }
-
-
 }

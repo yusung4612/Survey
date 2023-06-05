@@ -27,10 +27,26 @@ public String showForm(@RequestParam(name = "continue", required = false) String
     return "redirect:survey.html";
 }
 
-    @PostMapping("/submit")
-    public String surveySubmit(@ModelAttribute SurveyDto survey) {
+//    @PostMapping("/submit")
+//    public String surveySubmit(@ModelAttribute SurveyDto survey) {
+//
+//        Survey survey1 = Survey.builder()
+//                .name(survey.getName())
+//                .phoneNumber(survey.getPhoneNumber())
+//                .product(survey.getProduct())
+//                .gender(survey.getGender())
+//                .source(survey.getSource())
+//                .ageRange(survey.getAgeRange())
+//                .build();
+//
+//        surveyRepository.save(survey1);
+//        return "redirect: survey.html";
+//    }
 
-        Survey survey1 = Survey.builder()
+    @PostMapping("/submit/{id}")
+    public String surveySubmit(@ModelAttribute SurveyDto survey, @PathVariable Long id) {
+
+        Survey surveyResult = Survey.builder()
                 .name(survey.getName())
                 .phoneNumber(survey.getPhoneNumber())
                 .product(survey.getProduct())
@@ -38,8 +54,7 @@ public String showForm(@RequestParam(name = "continue", required = false) String
                 .source(survey.getSource())
                 .ageRange(survey.getAgeRange())
                 .build();
-
-        surveyRepository.save(survey1);
-        return "redirect: survey.html";
+        surveyRepository.save(surveyResult);
+        return "redirect:" + id;
     }
 }

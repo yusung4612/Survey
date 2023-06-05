@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--<html lang="en">-->
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -8,11 +8,45 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!--    <script>-->
+<!--        $(document).ready(function() {-->
+<!--            $('#myForm').submit(function(e) {-->
+<!--                e.preventDefault(); // 폼의 기본 동작을 막음-->
+
+<!--                let formData = $(this).serialize(); // 폼 데이터 직렬화-->
+
+<!--                // console.log("Submitted form data:");-->
+<!--                console.log(formData);-->
+
+<!--                $.ajax({-->
+<!--                    type: "POST",-->
+<!--                    contentType: "application/json; charset=utf-8",-->
+<!--                    url: "http://localhost:8090/submit",-->
+<!--                    data: formData,-->
+<!--                    dataType: 'json',-->
+<!--                    success: function(response) {-->
+<!--                        if (response.success === true) {-->
+<!--                            alert('이벤트 응모가 완료되었습니다.');-->
+<!--                            console.log("Success!");-->
+<!--// console.log(response);-->
+<!--                        } else {-->
+<!--                            alert('다시 시도해 주세요.');-->
+<!--                        }-->
+<!--                    },-->
+<!--                    error: function(e) {-->
+<!--                        alert("Error: " + e.responseText);-->
+<!--                    }-->
+<!--                });-->
+<!--            });-->
+<!--        });-->
+
+<!--    </script>-->
+
 </head>
 <body>
 
 <div class="container">
-
     <h1 class="title">에브리봇 프로모션</h1>
     <br>
     <h1 class="sub-title">신제품 출시정보 관심고객 소식받기 EVENT</h1>
@@ -21,13 +55,14 @@
     <div class="highlight">
         <p> •&nbsp;&nbsp;&nbsp;에브리봇 행사, 신제품 출시 정보 누구보다 빠르게 소식받기!</p>
         <p> •&nbsp;&nbsp;&nbsp;관심고객  신청만 해도 추첨을 통해 경품 제공!</p>
-        <p> •&nbsp;&nbsp;&nbsp;이벤트 경품 : </p>
+        <p> •&nbsp;&nbsp;&nbsp;이벤트 경품 :</p>
         <p> - &nbsp;스타벅스 아메리카노(50명)</p>
         <p> •&nbsp;&nbsp;&nbsp;당첨자 발표 :</p>
         <p> - &nbsp;8월 2주차 (접수하신 휴대폰 번호로 별도 발표없이 발송됩니다)</p>
     </div>
 
-    <form action="/submit" method="post" id="myForm">
+<!--    <form action="/submit" method="post" id="myForm" th:action="@{/submit}">-->
+    <form action="survey.html" method="post" th:action="@{/submit/{id}(id=${id})}">
         <div class="form-group">
             <label for="name">1. 이름</label>
             <input type="text" class="form-control" id="name" name="name" placeholder=" 예) 홍길동" required>
@@ -62,20 +97,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="spinEvo" value="spinEvo"
-                               required>
+                        <input class="form-check-input" type="radio" name="product" id="spinEvo" value="spinEvo" required th:checked="${product == 'spinEvo'}">
                         <label class="form-check-label" for="spinEvo">쓰리스핀 EVO</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="spin" value="spin" required>
+                        <input class="form-check-input" type="radio" name="product" id="spin" value="spin" required th:checked="${product == 'spin'}">
                         <label class="form-check-label" for="spin">쓰리스핀</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="edge" value="edge" required>
+                        <input class="form-check-input" type="radio" name="product" id="edge" value="edge" required th:checked="${product == 'edge'}">
                         <label class="form-check-label" for="edge">엣지2</label>
                     </div>
                 </div>
@@ -84,20 +118,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="spinPlus" value="spinPlus"
-                               required>
+                        <input class="form-check-input" type="radio" name="product" id="spinPlus" value="spinPlus" required th:checked="${product == 'spinPlus'}">
                         <label class="form-check-label" for="spinPlus">쓰리스핀 PLUS</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="q5" value="q5" required>
+                        <input class="form-check-input" type="radio" name="product" id="q5" value="q5" required th:checked="${product == 'q5'}">
                         <label class="form-check-label" for="q5">Q5</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="otherProduct" value="other" required>
+                        <input class="form-check-input" type="radio" name="product" id="otherProduct" value="other" required th:checked="${product == 'other'}">
                         <label class="form-check-label" for="otherProduct">기타</label>
                     </div>
                 </div>
@@ -111,19 +144,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="online" value="online" required>
+                        <input class="form-check-input" type="radio" name="source" id="online" value="online" required th:checked="${source == 'online'}">
                         <label class="form-check-label" for="online">온라인 (카페, 뉴스, 쇼핑몰)</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="offline" value="offline" required>
+                        <input class="form-check-input" type="radio" name="source" id="offline" value="offline" required th:checked="${source == 'offline'}">
                         <label class="form-check-label" for="offline">오프라인 (백화점, 가전판매점 등)</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="home" value="home" required>
+                        <input class="form-check-input" type="radio" name="source" id="home" value="home" required th:checked="${source == 'home'}">
                         <label class="form-check-label" for="home">TV 홈쇼핑</label>
                     </div>
                 </div>
@@ -132,19 +165,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="friends" value="friends" required>
+                        <input class="form-check-input" type="radio" name="source" id="friends" value="friends" required th:checked="${source == 'friends'}">
                         <label class="form-check-label" for="friends">지인 소개</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="sns" value="sns" required>
+                        <input class="form-check-input" type="radio" name="source" id="sns" value="sns" required th:checked="${source == 'sns'}">
                         <label class="form-check-label" for="sns">SNS</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="youtube" value="youtube" required>
+                        <input class="form-check-input" type="radio" name="source" id="youtube" value="youtube" required th:checked="${source == 'youtube'}">
                         <label class="form-check-label" for="youtube">유튜브</label>
                     </div>
                 </div>
@@ -158,19 +191,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age10s" value="10s" required>
+                        <input class="form-check-input" type="radio" name="ageRange" id="age10s" value="10s" required th:checked="${ageRange == '10s'}">
                         <label class="form-check-label" for="age10s">10대</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age20s" value="20s" required>
+                        <input class="form-check-input" type="radio" name="ageRange" id="age20s" value="20s" required th:checked="${ageRange == '20s'}">
                         <label class="form-check-label" for="age20s">20대</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age30s" value="30s" required>
+                        <input class="form-check-input" type="radio" name="ageRange" id="age30s" value="30s" required th:checked="${ageRange == '30s'}">
                         <label class="form-check-label" for="age30s">30대</label>
                     </div>
                 </div>
@@ -179,19 +212,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age40s" value="40s" required>
+                        <input class="form-check-input" type="radio" name="ageRange" id="age40s" value="40s" required th:checked="${ageRange == '40s'}">
                         <label class="form-check-label" for="age40s">40대</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age50s" value="50s" required>
+                        <input class="form-check-input" type="radio" name="ageRange" id="age50s" value="50s" required th:checked="${ageRange == '50s'}">
                         <label class="form-check-label" for="age50s">50대</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age60s" value="60s" required>
+                        <input class="form-check-input" type="radio" name="ageRange" id="age60s" value="60s" required th:checked="${ageRange == '60s'}">
                         <label class="form-check-label" for="age60s">60대 이상</label>
                     </div>
                 </div>
@@ -244,7 +277,7 @@
         <br>
         <div class="form-check3">
             <div class="form-check4">
-                <input class="form-check-input" type="checkbox" id="marketing" name="marketing">
+                <input class="form-check-input" type="checkbox" id="marketing" name="marketing" th:checked="${marketing}">
                 <label class="form-check-label">이벤트 당첨 안내 및 마케팅 수신에 동의합니다.</label>
             </div>
         </div>
@@ -255,36 +288,3 @@
 </body>
 </html>
 
-<script>
-    $(document).ready(function() {
-        $('#myForm').submit(function(e) {
-            e.preventDefault(); // 폼의 기본 동작을 막음
-
-            let formData = $(this).serialize(); // 폼 데이터 직렬화
-
-            // console.log("Submitted form data:");
-            console.log(formData);
-
-            $.ajax({
-                url: 'http://localhost:8090/submit',
-                type: 'POST',
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(formData),
-                dataType: 'json',
-                success: function(response) {
-                    if (response.success === true) {
-                        alert('이벤트 응모가 완료되었습니다.');
-                        console.log("Success!");
-// console.log(response);
-                    } else {
-                        alert('다시 시도해 주세요.');
-                    }
-                },
-                error: function(e) {
-                    alert("Error: " + e.responseText);
-                }
-            });
-        });
-    });
-
-</script>

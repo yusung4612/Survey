@@ -12,7 +12,8 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @Builder
-public class Survey extends Timestamped {
+//public class Survey extends Timestdamped {
+public class Survey {
 
     @jakarta.persistence.Id
     @Id
