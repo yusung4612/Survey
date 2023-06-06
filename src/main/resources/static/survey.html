@@ -1,282 +1,341 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>설문조사 폼</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
 
-<div class="container">
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>설문조사 폼</title>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="css/style.css">-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
 
-    <h1 class="title">에브리봇 프로모션</h1>
-    <br>
-    <h1 class="sub-title">신제품 출시정보 관심고객 소식받기 EVENT</h1>
-    <br><br>
-    <p class="end-date">기간&nbsp; :&nbsp; ~ &nbsp;23.07.31</p>
-    <div class="highlight">
-        <p> •&nbsp;&nbsp;&nbsp;에브리봇 행사, 신제품 출시 정보 누구보다 빠르게 소식받기!</p>
-        <p> •&nbsp;&nbsp;&nbsp;관심고객  신청만 해도 추첨을 통해 경품 제공!</p>
-        <p> •&nbsp;&nbsp;&nbsp;이벤트 경품 : </p>
-        <p> - &nbsp;스타벅스 아메리카노(50명)</p>
-        <p> •&nbsp;&nbsp;&nbsp;당첨자 발표 :</p>
-        <p> - &nbsp;8월 2주차 (접수하신 휴대폰 번호로 별도 발표없이 발송됩니다)</p>
-    </div>
 
-    <form action="/submit" method="post" id="myForm">
-        <div class="form-group">
-            <label for="name">1. 이름</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder=" 예) 홍길동" required>
-        </div>
+<!--        <script>-->
+<!--            $(document).ready(function() {-->
+<!--                $('#myForm').submit(function(e) {-->
+<!--                    e.preventDefault(); // 폼의 기본 동작을 막음-->
 
-        <br><br>
+<!--                    // let formData = $(this).serialize(); // 폼 데이터 직렬화-->
+<!--                    let formData = new FormData(this);-->
 
-        <div class="form-group">
-            <label for="phoneNumber">2. 휴대전화 번호(행사 안내문자가 발송됩니다)</label>
-            <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="  -  없이 번호만" required>
-        </div>
+<!--                    // console.log("Submitted form data:");-->
+<!--                    console.log(formData);-->
 
-        <br><br>
+<!--                    $.ajax({-->
+<!--                        type: "POST",-->
+<!--                        contentType: "application/json; charset=utf-8",-->
+<!--                        url: "http://localhost:8080/submit",-->
+<!--                        data: formData,-->
+<!--                        // data: JSON.stringify(data),-->
+<!--                        dataType: 'json',-->
+<!--                        success: function(response) {-->
+<!--                            if (response.success === true) {-->
+<!--                                alert('이벤트 응모가 완료되었습니다.');-->
+<!--                                console.log("Success!");-->
+<!--    // console.log(response);-->
+<!--                            } else {-->
+<!--                                alert('다시 시도해 주세요.');-->
+<!--                            }-->
+<!--                        },-->
+<!--                        error: function(e) {-->
+<!--                            alert("Error: " + e.responseText);-->
+<!--                        }-->
+<!--                    });-->
+<!--                });-->
+<!--            });-->
 
-        <div class="form-group">
-            <label>3. 성별</label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
-                <label class="form-check-label" for="male">남성</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
-                <div class="form-check-label" for="female">여성</div>
-            </div>
-        </div>
+<!--        </script>-->
 
-        <br><br>
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;        $(document).ready(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;            $.ajax({&ndash;&gt;-->
+<!--&lt;!&ndash;                type: "GET",&ndash;&gt;-->
+<!--&lt;!&ndash;                contentType: "application/json; charset=utf-8",&ndash;&gt;-->
+<!--&lt;!&ndash;                url: "http://localhost:8080/",&ndash;&gt;-->
+<!--&lt;!&ndash;                data: JSON.stringify,&ndash;&gt;-->
+<!--&lt;!&ndash;                dataType: 'json',&ndash;&gt;-->
+<!--&lt;!&ndash;                success: function (response) {&ndash;&gt;-->
+<!--&lt;!&ndash;                    if (response.success === true) {&ndash;&gt;-->
+<!--&lt;!&ndash;                        // alert('이벤트 응모가 완료되었습니다.');&ndash;&gt;-->
+<!--&lt;!&ndash;                        console.log("Success!");&ndash;&gt;-->
+<!--&lt;!&ndash;                        // console.log(response);&ndash;&gt;-->
+<!--&lt;!&ndash;                    } else {&ndash;&gt;-->
+<!--&lt;!&ndash;                        alert('다시 시도해 주세요.');&ndash;&gt;-->
+<!--&lt;!&ndash;                    }&ndash;&gt;-->
+<!--&lt;!&ndash;                },&ndash;&gt;-->
+<!--&lt;!&ndash;                error: function (e) {&ndash;&gt;-->
+<!--&lt;!&ndash;                    alert("Error: " + e.responseText);&ndash;&gt;-->
+<!--&lt;!&ndash;                }&ndash;&gt;-->
+<!--&lt;!&ndash;            });&ndash;&gt;-->
+<!--&lt;!&ndash;        });&ndash;&gt;-->
 
-        <div class="form-group">
-            <label>4. 관심있는 제품을 선택해주세요.</label>
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
 
-            <div class="row">
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="spinEvo" value="spinEvo"
-                               required>
-                        <label class="form-check-label" for="spinEvo">쓰리스핀 EVO</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="spin" value="spin" required>
-                        <label class="form-check-label" for="spin">쓰리스핀</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="edge" value="edge" required>
-                        <label class="form-check-label" for="edge">엣지2</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="spinPlus" value="spinPlus"
-                               required>
-                        <label class="form-check-label" for="spinPlus">쓰리스핀 PLUS</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="q5" value="q5" required>
-                        <label class="form-check-label" for="q5">Q5</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="product" id="otherProduct" value="other" required>
-                        <label class="form-check-label" for="otherProduct">기타</label>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <br><br>
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;        $(document).ready(function() {&ndash;&gt;-->
+<!--&lt;!&ndash;            // Capture form submit event&ndash;&gt;-->
+<!--&lt;!&ndash;            $('#myForm').submit(function(event) {&ndash;&gt;-->
+<!--&lt;!&ndash;                event.preventDefault(); // Prevent the default form submission&ndash;&gt;-->
 
-        <div class="form-group">
-            <label>5. 에브리봇을 알게된 경로를 체크해주세요.</label>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="online" value="online" required>
-                        <label class="form-check-label" for="online">온라인 (카페, 뉴스, 쇼핑몰)</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="offline" value="offline" required>
-                        <label class="form-check-label" for="offline">오프라인 (백화점, 가전판매점 등)</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="home" value="home" required>
-                        <label class="form-check-label" for="home">TV 홈쇼핑</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="friends" value="friends" required>
-                        <label class="form-check-label" for="friends">지인 소개</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="sns" value="sns" required>
-                        <label class="form-check-label" for="sns">SNS</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="source" id="youtube" value="youtube" required>
-                        <label class="form-check-label" for="youtube">유튜브</label>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--&lt;!&ndash;                // Create a new FormData object&ndash;&gt;-->
+<!--&lt;!&ndash;                let formData = new FormData(this);&ndash;&gt;-->
 
-        <br><br>
+<!--&lt;!&ndash;                // Iterate over the selected radio buttons and add their values to the FormData object&ndash;&gt;-->
+<!--&lt;!&ndash;                $('input[type="radio"]:checked').each(function() {&ndash;&gt;-->
+<!--&lt;!&ndash;                    formData.append($(this).attr('name'), $(this).val());&ndash;&gt;-->
+<!--&lt;!&ndash;                });&ndash;&gt;-->
 
-        <div class="form-group">
-            <label>6. 귀하의 연령대가 어떻게 되십니까?</label>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age10s" value="10s" required>
-                        <label class="form-check-label" for="age10s">10대</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age20s" value="20s" required>
-                        <label class="form-check-label" for="age20s">20대</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age30s" value="30s" required>
-                        <label class="form-check-label" for="age30s">30대</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age40s" value="40s" required>
-                        <label class="form-check-label" for="age40s">40대</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age50s" value="50s" required>
-                        <label class="form-check-label" for="age50s">50대</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageRange" id="age60s" value="60s" required>
-                        <label class="form-check-label" for="age60s">60대 이상</label>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--&lt;!&ndash;                // Use the formData object as needed (e.g., send it via AJAX or store it in localStorage)&ndash;&gt;-->
+<!--&lt;!&ndash;                console.log(formData);&ndash;&gt;-->
 
-        <br><br><br><br>
+<!--&lt;!&ndash;                // Optionally, you can submit the form with the captured data&ndash;&gt;-->
+<!--&lt;!&ndash;                // this.submit();&ndash;&gt;-->
+<!--&lt;!&ndash;            });&ndash;&gt;-->
+<!--&lt;!&ndash;        });&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
 
-        <div class="form-group1">
-            <label>유의 사항:</label>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;비정상적인 경로나 방법 등을 활용 경우, 이벤트에서 제외될 수 있습니다.</p>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;관심고객 대상 경품 이벤트의 경우, 7월31일 까지 관심고객으로 신청해주신 고객을 대상으로 진행되는 이벤트 입니다.</p>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;본 이벤트는 당사의 사정에 따라 별도 공지 없이 변경 또는 조기 종료될 수 있습니다.</p>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;관심고객 사전등록 시 제품 홍보 및 행사 안내를 위한 문자가 발송됩니다.</p>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사은품은 추후 별도 배송되며, 연락처/주소 오기입으로 인한 미발송 시 재발송 되지 않으니 유의하여 주시기 바랍니다.</p>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이벤트 경품은 공급사의 사정으로 변경(동일금액상당)될 수 있습니다.</p>
-            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당첨자 발표의 경우 접수하신 휴대폰으로 별도 발표없이 발송 됩니다.</p>
-        </div>
+<!--</head>-->
+<!--<body>-->
 
-        <br><br><br>
+<!--<div class="container">-->
+<!--    <h1 class="title">에브리봇 프로모션</h1>-->
+<!--    <br>-->
+<!--    <h1 class="sub-title">신제품 출시정보 관심고객 소식받기 EVENT</h1>-->
+<!--    <br><br>-->
+<!--    <p class="end-date">기간&nbsp; :&nbsp; ~ &nbsp;23.07.31</p>-->
+<!--    <div class="highlight">-->
+<!--        <p> •&nbsp;&nbsp;&nbsp;에브리봇 행사, 신제품 출시 정보 누구보다 빠르게 소식받기!</p>-->
+<!--        <p> •&nbsp;&nbsp;&nbsp;관심고객  신청만 해도 추첨을 통해 경품 제공!</p>-->
+<!--        <p> •&nbsp;&nbsp;&nbsp;이벤트 경품 :</p>-->
+<!--        <p> - &nbsp;스타벅스 아메리카노(50명)</p>-->
+<!--        <p> •&nbsp;&nbsp;&nbsp;당첨자 발표 :</p>-->
+<!--        <p> - &nbsp;8월 2주차 (접수하신 휴대폰 번호로 별도 발표없이 발송됩니다)</p>-->
+<!--    </div>-->
 
-        <div class="form-group1">
-            <label>개인정보 활용 동의서</label>
+<!--    &lt;!&ndash;    <form action="/submit" method="post" id="myForm" th:action="@{/submit}">&ndash;&gt;-->
+<!--    <form action="survey.html" method="post" th:action="@{/submit/{id}(id=${id})}">-->
+<!--        <div class="form-group">-->
+<!--            <label for="name">1. 이름</label>-->
+<!--            <input type="text" class="form-control" id="name" name="name" placeholder=" 예) 홍길동" required>-->
+<!--        </div>-->
 
-            <br>
-            <p>개인정보 수집 이용 동의서</p>
-            <p>I. 개인정보의 수집 및 이용 동의서 - 이용자가 제공한 모든 정보는 다음의 목적을 위해 활용하며, 하기 목적 이외의 용도로는 사용되지 않습니다.</p>
-            <p>① 개인정보 수집 항목 및 수집·이용 목적<br>
-                가) &nbsp;수집 항목 (필수 항목) - 성명(국문), 전화번호(휴대 전화) 신청서에 기재된 정보 또는 신청자가 제 공한 정보<br>
-                나) &nbsp;수집 및 이용 목적 - 에브리봇 주식회사 신제품 출시 안내 문자 발송 – 에브리봇 주식회사 출시 정보 문자발송
-                – 에브리봇 주식회사 이벤트 사은품 쿠폰 발송 – 에브리봇 주식회사 자사 제품 홍보 목적의 SMS 발송</p>
-            <p>② 개인정보 보유 및 이용기간 - 수집·이용 동의 일로부터 6개월 이내</p>
-            <p>③ 동의거부관리 - 귀하께서는 본 안내에 따른 개인정보 수집, 이용에 대하여 동의를 거부하실 권리가 있습니다.
-                다만, 귀하가 개인정보의 수집 / 이용에 동의를 거부하시는 경우에 해당 이벤트에서 제외되며 사은품 대상에서 제외됩니다.
-                본인은 위의 동의서 내용을 충분히 숙지하였으며, 개인정보 수집, 이용, 제공하는 것에 동의합니다.</p>
-        </div>
-        <br>
-        <div class="form-check1">
-            <div class="form-check2">
-            <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
-            <label class="form-check-label">개인정보 수집 및 활용에 동의합니다.</label>
-            </div>
-        </div>
+<!--        <br><br>-->
 
-        <br><br><br><br><br>
+<!--        <div class="form-group">-->
+<!--            <label for="phoneNumber">2. 휴대전화 번호(행사 안내문자가 발송됩니다)</label>-->
+<!--            <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="  -  없이 번호만" required>-->
+<!--        </div>-->
 
-        <div class="event-text">
-            <p>본 이벤트 신청서에 입력하신 개인정보는 사은품 배송을 위한 용도로만 활용되며, 사은품 배송과 관계없는 제 3자에게 제공되지 않습니다.</p>
-        </div>
-            <br>
-            <div class="form-check3">
-                <div class="form-check4">
-                <input class="form-check-input" type="checkbox" id="marketing" name="marketing">
-                <label class="form-check-label">이벤트 당첨 안내 및 마케팅 수신에 동의합니다.</label>
-                </div>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary btn-block">응모 완료</button>
-    </form>
-</div>
-</body>
-</html>
+<!--        <br><br>-->
 
-<script>
-    $(document).ready(function() {
-        $('#myForm').submit(function(e) {
-            e.preventDefault(); // 폼의 기본 동작을 막음
+<!--        <div class="form-group">-->
+<!--            <label>3. 성별</label>-->
+<!--            <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>-->
+<!--                <label class="form-check-label" for="male">남성</label>-->
+<!--            </div>-->
+<!--            <div class="form-check form-check-inline">-->
+<!--                <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>-->
+<!--                <div class="form-check-label" for="female">여성</div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-            let formData = $(this).serialize(); // 폼 데이터 직렬화
+<!--        <br><br>-->
 
-            console.log("Submitted form data:");
-            console.log(formData);
+<!--        <div class="form-group">-->
+<!--            <label>4. 관심있는 제품을 선택해주세요.</label>-->
 
-            $.ajax({
-                url: '/submit',
-                type: 'POST',
-                data: formData,
-                success: function(response) {
-                    console.log("Success!");
-                    console.log(response);
-                },
-                error: function(error) {
-                    console.log("Error!");
-                    console.log(error);
-                }
-            });
-        });
-    });
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="product" id="spinEvo" value="spinEvo" required th:checked="${product == 'spinEvo'}">-->
+<!--                        <label class="form-check-label" for="spinEvo">쓰리스핀 EVO</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="product" id="spin" value="spin" required th:checked="${product == 'spin'}">-->
+<!--                        <label class="form-check-label" for="spin">쓰리스핀</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="product" id="edge" value="edge" required th:checked="${product == 'edge'}">-->
+<!--                        <label class="form-check-label" for="edge">엣지2</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="product" id="spinPlus" value="spinPlus" required th:checked="${product == 'spinPlus'}">-->
+<!--                        <label class="form-check-label" for="spinPlus">쓰리스핀 PLUS</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="product" id="q5" value="q5" required th:checked="${product == 'q5'}">-->
+<!--                        <label class="form-check-label" for="q5">Q5</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="product" id="otherProduct" value="other" required th:checked="${product == 'other'}">-->
+<!--                        <label class="form-check-label" for="otherProduct">기타</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-</script>
+<!--        <br><br>-->
+
+<!--        <div class="form-group">-->
+<!--            <label>5. 에브리봇을 알게된 경로를 체크해주세요.</label>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="source" id="online" value="online" required th:checked="${source == 'online'}">-->
+<!--                        <label class="form-check-label" for="online">온라인 (카페, 뉴스, 쇼핑몰)</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="source" id="offline" value="offline" required th:checked="${source == 'offline'}">-->
+<!--                        <label class="form-check-label" for="offline">오프라인 (백화점, 가전판매점 등)</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="source" id="home" value="home" required th:checked="${source == 'home'}">-->
+<!--                        <label class="form-check-label" for="home">TV 홈쇼핑</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="source" id="friends" value="friends" required th:checked="${source == 'friends'}">-->
+<!--                        <label class="form-check-label" for="friends">지인 소개</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="source" id="sns" value="sns" required th:checked="${source == 'sns'}">-->
+<!--                        <label class="form-check-label" for="sns">SNS</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="source" id="youtube" value="youtube" required th:checked="${source == 'youtube'}">-->
+<!--                        <label class="form-check-label" for="youtube">유튜브</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <br><br>-->
+
+<!--        <div class="form-group">-->
+<!--            <label>6. 귀하의 연령대가 어떻게 되십니까?</label>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="ageRange" id="age10s" value="10s" required th:checked="${ageRange == '10s'}">-->
+<!--                        <label class="form-check-label" for="age10s">10대</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="ageRange" id="age20s" value="20s" required th:checked="${ageRange == '20s'}">-->
+<!--                        <label class="form-check-label" for="age20s">20대</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="ageRange" id="age30s" value="30s" required th:checked="${ageRange == '30s'}">-->
+<!--                        <label class="form-check-label" for="age30s">30대</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="ageRange" id="age40s" value="40s" required th:checked="${ageRange == '40s'}">-->
+<!--                        <label class="form-check-label" for="age40s">40대</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="ageRange" id="age50s" value="50s" required th:checked="${ageRange == '50s'}">-->
+<!--                        <label class="form-check-label" for="age50s">50대</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="ageRange" id="age60s" value="60s" required th:checked="${ageRange == '60s'}">-->
+<!--                        <label class="form-check-label" for="age60s">60대 이상</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <br><br><br><br>-->
+
+<!--        <div class="form-group1">-->
+<!--            <label>유의 사항:</label>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;비정상적인 경로나 방법 등을 활용 경우, 이벤트에서 제외될 수 있습니다.</p>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;관심고객 대상 경품 이벤트의 경우, 7월31일 까지 관심고객으로 신청해주신 고객을 대상으로 진행되는 이벤트 입니다.</p>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;본 이벤트는 당사의 사정에 따라 별도 공지 없이 변경 또는 조기 종료될 수 있습니다.</p>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;관심고객 사전등록 시 제품 홍보 및 행사 안내를 위한 문자가 발송됩니다.</p>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사은품은 추후 별도 배송되며, 연락처/주소 오기입으로 인한 미발송 시 재발송 되지 않으니 유의하여 주시기 바랍니다.</p>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이벤트 경품은 공급사의 사정으로 변경(동일금액상당)될 수 있습니다.</p>-->
+<!--            <p>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당첨자 발표의 경우 접수하신 휴대폰으로 별도 발표없이 발송 됩니다.</p>-->
+<!--        </div>-->
+
+<!--        <br><br><br>-->
+
+<!--        <div class="form-group1">-->
+<!--            <label>개인정보 활용 동의서</label>-->
+
+<!--            <br>-->
+<!--            <p>개인정보 수집 이용 동의서</p>-->
+<!--            <p>I. 개인정보의 수집 및 이용 동의서 - 이용자가 제공한 모든 정보는 다음의 목적을 위해 활용하며, 하기 목적 이외의 용도로는 사용되지 않습니다.</p>-->
+<!--            <p>① 개인정보 수집 항목 및 수집·이용 목적<br>-->
+<!--                가) &nbsp;수집 항목 (필수 항목) - 성명(국문), 전화번호(휴대 전화) 신청서에 기재된 정보 또는 신청자가 제 공한 정보<br>-->
+<!--                나) &nbsp;수집 및 이용 목적 - 에브리봇 주식회사 신제품 출시 안내 문자 발송 – 에브리봇 주식회사 출시 정보 문자발송-->
+<!--                – 에브리봇 주식회사 이벤트 사은품 쿠폰 발송 – 에브리봇 주식회사 자사 제품 홍보 목적의 SMS 발송</p>-->
+<!--            <p>② 개인정보 보유 및 이용기간 - 수집·이용 동의 일로부터 6개월 이내</p>-->
+<!--            <p>③ 동의거부관리 - 귀하께서는 본 안내에 따른 개인정보 수집, 이용에 대하여 동의를 거부하실 권리가 있습니다.-->
+<!--                다만, 귀하가 개인정보의 수집 / 이용에 동의를 거부하시는 경우에 해당 이벤트에서 제외되며 사은품 대상에서 제외됩니다.-->
+<!--                본인은 위의 동의서 내용을 충분히 숙지하였으며, 개인정보 수집, 이용, 제공하는 것에 동의합니다.</p>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <div class="form-check1">-->
+<!--            <div class="form-check2">-->
+<!--                <input class="form-check-input" type="checkbox" id="agree" name="agree" required>-->
+<!--                <label class="form-check-label">개인정보 수집 및 활용에 동의합니다.</label>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <br><br><br><br><br>-->
+
+<!--        <div class="event-text">-->
+<!--            <p>본 이벤트 신청서에 입력하신 개인정보는 사은품 배송을 위한 용도로만 활용되며, 사은품 배송과 관계없는 제 3자에게 제공되지 않습니다.</p>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <div class="form-check3">-->
+<!--            <div class="form-check4">-->
+<!--                <input class="form-check-input" type="checkbox" id="marketing" name="marketing" th:checked="${marketing}">-->
+<!--                <label class="form-check-label">이벤트 당첨 안내 및 마케팅 수신에 동의합니다.</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <button type="submit" class="btn btn-primary btn-block">응모 완료</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

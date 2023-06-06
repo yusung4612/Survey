@@ -3,15 +3,10 @@ package com.example.event.controller;
 import com.example.event.dto.SurveyDto;
 import com.example.event.entity.Survey;
 import com.example.event.repository.SurveyRepository;
-import com.example.event.service.SurveyService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -21,33 +16,22 @@ public class SurveyController {
     @GetMapping("/")
     public String showForm(Model model) {
         model.addAttribute("surveyDto", new SurveyDto());
-        return "redirect: survey.html";
+        return "surveyy.html";
     }
 
     @PostMapping("/submit")
-    public String surveySubmit(@ModelAttribute SurveyDto survey) {
+        public String submitForm(@ModelAttribute SurveyDto surveyDto) {
+        Survey survey = new Survey();
+        survey.setName(surveyDto.getName());
+        survey.setPhoneNumber(surveyDto.getPhoneNumber());
+        survey.setGender(surveyDto.getGender());
+        survey.setProduct(surveyDto.getProduct());
+        survey.setPrivacyConsent(surveyDto.isPrivacyConsent());
+        survey.setEventSmsConsent(surveyDto.isEventSmsConsent());
+        survey.setAgeRange(surveyDto.getAgeRange());
+        survey.setSource(surveyDto.getSource());
 
-        Survey survey1 = Survey.builder()
-                .name(survey.getName())
-                .phoneNumber(survey.getPhoneNumber())
-                .product(survey.getProduct())
-                .gender(survey.getGender())
-                .source(survey.getSource())
-                .ageRange(survey.getAgeRange())
-                .build();
-
-        surveyRepository.save(survey1);
-        return "redirect: survey.html";
-    }
-
-//    @PostMapping("/register")
-//    public String processForm(SurveyDto surveyDto) {
-//        surveyService.registerSurvey(surveyDto);
-//        return "redirect:/survey.html/";
-//    }
-//
-//    @GetMapping("/success")
-//    public String showSuccessPage() {
-//        return "survey.html";
-//    }
+            surveyRepository.save(survey);
+            return "redirect:/list.html";
+        }
 }

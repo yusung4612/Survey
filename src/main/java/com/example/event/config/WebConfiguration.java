@@ -4,8 +4,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.validation.Validator;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -17,6 +16,13 @@ public class WebConfiguration implements WebMvcConfigurer {
         messageSource.setBasename("classpath:/message"); //메시지 리소스 번들 지정
         messageSource.setDefaultEncoding("UTF-8"); //문자 집합 설정 - 한글 깨짐 방지
         return messageSource;
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:8090")
+                .allowedMethods("GET", "POST", "PUT", "DELETE");
     }
 
 //    @Override
