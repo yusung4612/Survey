@@ -21,7 +21,7 @@
 //    @CreatedDate
 //    private LocalDateTime createdAt;
 //
-//    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
-//    @LastModifiedDate
-//    private LocalDateTime modifiedAt;
+////    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+////    @LastModifiedDate
+////    private LocalDateTime modifiedAt;
 //}

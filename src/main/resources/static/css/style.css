@@ -1,25 +1,68 @@
-body {
-    font-family: Arial, sans-serif;
+.survey-body {
+    /*font-family: Arial, sans-serif;*/
+    font-family: Montserrat;
     margin: 20px;
+    /*background: linear-gradient(to right, #a2c4d9, #9ad2e8, #87ddeb, #74e8f0, #61f3f6, #61f3f6, #74e8f0, #87ddeb, #9ad2e8, #a2c4d9);*/
+    /*background: linear-gradient(to right, #ACFFEF,#A2F5E6, #8EE1D2,	#3ED0C8, #2ABCB4,#3ED0C8,#A2F5E6, #ACFFEF);*/
+    /*background-size: 200% 200%;*/
+    /*animation: flowingWater 10s linear infinite;*/
 }
+/*@keyframes flowingWater {*/
+/*    0% { background-position: 0% 50%; }*/
+/*    40% { background-position: 100% 50%; }*/
+/*    80% { background-position: 100% 50%; }*/
+/*    100% { background-position: 0% 50%; }*/
+/*}*/
 
 h1 {
     text-align: center;
+    font-size: calc(18px + 1vw);
+}
+
+/*컨테이너 부분 시작*/
+.container {
+    background-color: #f9f9f9;
+    border: 10px solid;
+    border-image: linear-gradient(to bottom, transparent, #dcdcdc) 1;
+    border-image-slice: 1;
+    border-radius: 20px; /* Adjust the value as per your preference */
+}
+/*컨테이너 테두리 부분 끝*/
+
+.container .title {
+    font-weight: bold;
+}
+
+.container .sub-title {
+    font-weight: bold;
 }
 
 .end-date {
     text-align: right;
     font-weight: bold;
-    font-size: 18px;
+    font-size: calc(2px + 1vw);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    font-size : 20px;
+}
+@media (max-width: 768px) {
+    /* 모바일 화면 크기에 따른 스타일 */
+    .form-group label {
+        font-size: 15px; /* 적절한 모바일 글꼴 크기 설정 */
+    }
+}
+
+.form-group label input {
+    font-weight: normal;
 }
 
 label {
     display: block;
-    font-weight: bold;
 }
 
 input[type="text"],
@@ -50,9 +93,10 @@ button[type="submit"]:hover {
 }
 
 .container {
-    padding: 50px; /* 내부 여백 설정 */
-    border-style: solid;
-    border-color: #64AAFF;
+    padding: 30px; /* 내부 여백 설정 */
+    /*border-style: solid;*/
+    /*border-color: gray;*/
+    max-width: 900px;
 }
 
 .text-center {
@@ -60,20 +104,19 @@ button[type="submit"]:hover {
 }
 
 .highlight {
+    /*background: linear-gradient(to bottom, #a0a0a0, white);*/
     background-color: #dcdcdc;
     padding: 20px; /* 내부 여백 설정 */
     margin-bottom: 50px; /* 아래쪽 간격 설정 */
-    color: #3296D7;
+    color: #323232;
     font-weight: bold;
-    font-size: 17px;
+    /*font-size: calc(5px + 1vw);*/
+    font-size: 18px;
+    border-radius: 20px;
 }
 
-.highlight p:nth-child(4) {
-    font-weight: lighter;
-}
-
-.highlight p:nth-child(6) {
-    font-weight: lighter;
+.form-group label input {
+    font-size: 1px;
 }
 
 .form-check-label {
@@ -139,4 +182,63 @@ button[type="submit"]:hover {
 /* 남성, 여성 선택에서 남성 부분 margin */
 .form-check-input[type="radio"][name="gender"][value="male"] + .form-check-label {
     margin-right: 50px;
+}
+
+/*유의 사항 부분*/
+.form-group1 p {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+/*이벤트 부분*/
+.form-group-event {
+    text-align: left;
+    margin-top: 8px;
+    font-weight: normal;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.event-title {
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group-event label .event-subtitle {
+    display: flex;
+    align-items: center;
+}
+
+/*리스트 페이지 여기서 부터*/
+
+.list-body {
+    background-color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    isplay: flex;
+    justify-content: center;
+}
+
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #dddddd;
 }
