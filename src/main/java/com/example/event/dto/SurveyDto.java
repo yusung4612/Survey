@@ -17,20 +17,6 @@ public class SurveyDto {
     private String source;
     private String ageRange;
     private boolean privacyConsent;
-    private boolean eventSmsConsent;
+    private String eventSmsConsent;
 
-//    private static Survey save(SurveyDto surveyDto) {
-//
-//        return Survey.builder()
-//                .id(surveyDto.id)
-//                .name(surveyDto.name)
-//                .phoneNumber(surveyDto.phoneNumber)
-//                .gender(surveyDto.gender)
-//                .product(surveyDto.product)
-//                .source(surveyDto.source)
-//                .ageRange(surveyDto.ageRange)
-//                .privacyConsent(surveyDto.privacyConsent)
-//                .eventSmsConsent(surveyDto.eventSmsConsent)
-//                .build();
-//    }
 }

@@ -1,6 +1,5 @@
 package com.example.event.config;
 
-import jakarta.servlet.DispatcherType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.security.ConditionalOnDefaultWebSecurity;
@@ -15,7 +14,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity //Security 활성화
@@ -58,16 +56,14 @@ public class SecurityConfiguration {
 
         http.authorizeHttpRequests(authorize -> authorize // 요청에 대한 사용권한 설정 //로그인, 회원가입 Api는 토큰이 없는 상태에서 요청이 들어오기 때문에 permitAll 설정
                 .requestMatchers(AUTH_WHITELIST).permitAll()
-//                .requestMatchers("/api/**").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                .requestMatchers("/api/admins/**").permitAll()
                 .requestMatchers("/", "/**").permitAll()
                 .requestMatchers("/v2/api-docs",
                         "/configuration/ui",
                         "/configuration/security",
                         "/swagger-ui.html",
-                        "/",
-                        "/**",
+//                        "/",
+//                        "/**",
                         "survey.html",
                         "/submit/**",
                         "/submit",
