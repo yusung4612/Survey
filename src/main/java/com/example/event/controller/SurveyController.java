@@ -23,11 +23,6 @@ public class SurveyController {
         return "survey";
     }
 
-//    @GetMapping("/mytest")
-//    public String getTest(Model model) {
-//        return "test";
-//    }
-
     @GetMapping("/surveys")
     public String getAllSurveys(Model model) {
         // 리포지토리에서 설문 데이터를 검색

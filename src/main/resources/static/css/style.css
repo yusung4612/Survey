@@ -1,64 +1,343 @@
 .survey-body {
-    /*font-family: Arial, sans-serif;*/
-    font-family: Montserrat;
+    font-family: Arial, sans-serif;
+    /*font-family: Montserrat;*/
     margin: 20px;
-    /*background: linear-gradient(to right, #a2c4d9, #9ad2e8, #87ddeb, #74e8f0, #61f3f6, #61f3f6, #74e8f0, #87ddeb, #9ad2e8, #a2c4d9);*/
-    /*background: linear-gradient(to right, #ACFFEF,#A2F5E6, #8EE1D2,	#3ED0C8, #2ABCB4,#3ED0C8,#A2F5E6, #ACFFEF);*/
-    /*background-size: 200% 200%;*/
-    /*animation: flowingWater 10s linear infinite;*/
+    /*background-color: #0060EA;*/
+    /*background-color: #20dad8;*/
+    background-color: #1dcac0;
+    background-image: url("templates/images/eb_logo.jpg");
+    background-size: cover;
+    background-position: center;
 }
-/*@keyframes flowingWater {*/
-/*    0% { background-position: 0% 50%; }*/
-/*    40% { background-position: 100% 50%; }*/
-/*    80% { background-position: 100% 50%; }*/
-/*    100% { background-position: 0% 50%; }*/
-/*}*/
 
 h1 {
     text-align: center;
-    font-size: calc(18px + 1vw);
+    /*font-size: calc(18px + 1vw);*/
+}
+
+/*에브리봇 로고*/
+.title {
+    float: left;
+}
+
+.title img {
+    max-width: 80%;
+    height: auto;
+    position: relative;
+}
+
+/*부제목*/
+.container .sub-title1 {
+    font-family: 'NotoSansKR light';
+    font-weight: normal;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.container .sub-title2 {
+    font-family: 'NotoSansKR bold';
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    color: white;
+    font-size: 70px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container .sub-title1 {
+        font-size: 50px;
+    }
+}
+@media (max-width: 576px) {
+    .container .sub-title1 {
+        font-size: 30px;
+    }
+}
+@media (max-width: 320px) {
+    .container .sub-title1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .sub-title2 {
+        font-size: 50px;
+    }
+}
+@media (max-width: 576px) {
+    .container .sub-title2 {
+        font-size: 30px;
+    }
+}
+@media (max-width: 320px) {
+    .container .sub-title2 {
+        font-size: 25px;
+    }
+}
+
+@font-face {
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'BMJua';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.ttf') format("truetype");
+    font-display: swap;
 }
 
 /*컨테이너 부분 시작*/
 .container {
-    background-color: #f9f9f9;
-    border: 10px solid;
-    border-image: linear-gradient(to bottom, transparent, #dcdcdc) 1;
-    border-image-slice: 1;
-    border-radius: 20px; /* Adjust the value as per your preference */
+    /*background-color: #0060EA;*/
+    /*background-color: #20dad8;*/
+    background-color: #1dcac0;
 }
+
 /*컨테이너 테두리 부분 끝*/
 
-.container .title {
-    font-weight: bold;
-}
-
-.container .sub-title {
-    font-weight: bold;
-}
-
 .end-date {
+    font-family: 'NotoSansKR medium';
+    color: white;
     text-align: right;
+    font-size: 1.4em;
     font-weight: bold;
-    font-size: calc(2px + 1vw);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-.form-group {
-    margin-bottom: 10px;
+@media (max-width: 320px) {
+    .end-date {
+        font-size: 15px;
+    }
 }
-
-.form-group label {
-    font-size : 20px;
+@media (max-width: 375px) {
+    .end-date {
+        font-size: 16px;
+    }
 }
-@media (max-width: 768px) {
-    /* 모바일 화면 크기에 따른 스타일 */
-    .form-group label {
-        font-size: 15px; /* 적절한 모바일 글꼴 크기 설정 */
+@media (max-width: 425px) {
+    .end-date {
+        font-size: 16px;
     }
 }
 
-.form-group label input {
-    font-weight: normal;
+/*이름, 번호 입력 칸*/
+.form-control {
+    margin-bottom: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    font-weight: bold;
+}
+
+/*성명, 휴대폰 번호 텍스트 입력 글씨*/
+.highlight input.text-blank {
+    color: #000;
+    font-weight: bold;
+}
+
+/*이름 칸 타원*/
+.oval-container {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #000;
+    padding: 10px;
+    width: 200px;
+}
+
+.oval-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+}
+
+.highlight {
+    background-color: white;
+    /*font-family: 'BMJua';*/
+    font-family: 'NotoSansKR';
+    font-weight: bold;
+    padding: 20px; /* 내부 여백 설정 */
+    margin-bottom: 20px; /* 아래쪽 간격 설정 */
+    font-size: 0.9em;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+}
+
+/*상당 공지사항 부분*/
+.highlight p {
+    font-size: 16px;
+}
+@media (max-width: 320px) {
+    .highlight p {
+        font-size: 12px;
+    }
+}
+@media (max-width: 375px) {
+    .highlight p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 425px) {
+    .highlight p {
+        font-size: 16px;
+    }
+}
+@media (width: 768px) {
+    .highlight p {
+        font-size: 18px;
+    }
+}
+@media (width: 1024px) {
+    .highlight p {
+        font-size: 20px;
+    }
+}
+@media (width: 1440px) {
+    .highlight p {
+        font-size: 21px;
+    }
+}
+
+.highlight span {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+/*성별, 제품, 경로, 연령대*/
+.highlight label-title {
+    font-size: 17px;
+    padding-bottom: 10px;
+    display: block;
+    font-weight: bolder;
+}
+@media (max-width: 320px) {
+    .highlight label-title{
+        font-size: 12px;
+    }
+}
+@media (max-width: 375px) {
+    .highlight label-title{
+        font-size: 16px;
+    }
+}
+@media (max-width: 425px) {
+    .highlight label-title{
+        font-size: 17px;
+    }
+}
+@media (width: 768px) {
+    .highlight label-title{
+        font-size: 18px;
+    }
+}
+@media (width: 1024px) {
+    .highlight label-title{
+        font-size: 20px;
+    }
+}
+@media (width: 1440px) {
+    .highlight label-title{
+        font-size: 20px;
+    }
+}
+
+/*성명, 휴대폰 번호*/
+.highlight label p {
+    font-size: 17px;
+}
+@media (max-width: 320px) {
+    .highlight label p {
+        font-size: 12px;
+    }
+}
+@media (max-width: 375px) {
+    .highlight label p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 425px) {
+    .highlight label p {
+        font-size: 17px;
+    }
+}
+@media (width: 768px) {
+    .highlight label p {
+        font-size: 18px;
+    }
+}
+@media (width: 1024px) {
+    .highlight label p {
+        font-size: 20px;
+    }
+}
+@media (width: 1440px) {
+    .highlight label p {
+        font-size: 20px;
+    }
+}
+
+/*각 항목 문항*/
+.highlight input[type="radio"] {
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.highlight .input-style label {
+    font-size: 1em;
+    font-weight: bold;
+    font-family: 'NotoSansKR';
+}
+
+.highlight .form-group1 p {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .highlight .form-group1 p {
+        font-size: 14px; /* 작은 화면 크기에서의 글꼴 크기 */
+    }
+}
+
+@media (max-width: 576px) {
+    .highlight .form-group1 p {
+        font-size: 13px; /* 매우 작은 화면 크기에서의 글꼴 크기 */
+    }
+}
+
+@media (max-width: 425px) {
+    .highlight .form-group1 p {
+        font-size: 12px; /* 매우 작은 화면 크기에서의 글꼴 크기 */
+    }
+}
+
+.highlight .form-group1 label {
+    font-size: 17px;
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .highlight .form-group1 label {
+        font-size: 16px; /* 작은 화면 크기에서의 글꼴 크기 */
+    }
+}
+
+@media (max-width: 576px) {
+    .highlight .form-group1 label {
+        font-size: 15px; /* 매우 작은 화면 크기에서의 글꼴 크기 */
+    }
 }
 
 label {
@@ -103,29 +382,8 @@ button[type="submit"]:hover {
     text-align: left;
 }
 
-.highlight {
-    /*background: linear-gradient(to bottom, #a0a0a0, white);*/
-    background-color: #dcdcdc;
-    padding: 20px; /* 내부 여백 설정 */
-    margin-bottom: 50px; /* 아래쪽 간격 설정 */
-    color: #323232;
-    font-weight: bold;
-    /*font-size: calc(5px + 1vw);*/
-    font-size: 18px;
-    border-radius: 20px;
-}
-
-.form-group label input {
-    font-size: 1px;
-}
-
 .form-check-label {
     font-weight: normal;
-}
-
-.form-group1 label {
-    color: red;
-    font-size: 18px;
 }
 
 .form-check1 .form-check-label {
@@ -175,8 +433,8 @@ button[type="submit"]:hover {
 }
 
 .event-text {
-    padding: 20px;
-    background: linear-gradient(to bottom, #f2f2f2, white);
+    /*padding: 20px;*/
+    /*background: linear-gradient(to bottom, #f2f2f2, white);*/
 }
 
 /* 남성, 여성 선택에서 남성 부분 margin */
@@ -202,11 +460,60 @@ button[type="submit"]:hover {
 }
 
 .event-title {
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     display: flex;
+    font-weight: bold;
     text-align: left;
     margin-bottom: 20px;
+}
+
+.event-subtitle {
+    margin: 0 30px;
+}
+@media (max-width: 768px) {
+    .event-subtitle strong {
+        font-size: 14px;
+    }
+}
+@media (max-width: 576px) {
+    .event-subtitle strong {
+        font-size: 14px;
+    }
+}
+@media (max-width: 425px) {
+    .event-subtitle strong {
+        font-size: 14px;
+    }
+}
+@media (max-width: 375px) {
+    .event-subtitle strong {
+        font-size: 13px;
+    }
+}
+@media (max-width: 1440px) {
+    .event-subtitle {
+        margin: 0 60px;
+    }
+}
+@media (max-width: 1024px) {
+    .event-subtitle {
+        margin: 0 50px;
+    }
+}
+@media (max-width: 768px) {
+    .event-subtitle {
+        margin: 0 30px;
+    }
+}
+@media (max-width: 425px) {
+    .event-subtitle {
+        margin: 0 13px;
+    }
+}
+@media (max-width: 375px) {
+    .event-subtitle {
+        margin: 0 5px;
+    }
 }
 
 .form-group-event label .event-subtitle {
@@ -214,8 +521,20 @@ button[type="submit"]:hover {
     align-items: center;
 }
 
-/*리스트 페이지 여기서 부터*/
+.btn-block {
+    display: block; /* 블록 요소로 설정하여 가로 폭을 차지하도록 함 */
+    margin-left: auto; /* 왼쪽 여백을 자동으로 설정하여 가운데 정렬 */
+    margin-right: auto; /* 오른쪽 여백을 자동으로 설정하여 가운데 정렬 */
+    border-radius: 40px;
+    font-family: 'NotoSansKR';
+    font-weight: bolder;
+    font-size: 20px;
+    max-width: 200px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
+/*리스트 페이지 여기서 부터*/
 .list-body {
     background-color: white;
 }
@@ -235,10 +554,19 @@ table {
 
 th, td {
     border: 1px solid #dddddd;
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
 th {
     background-color: #dddddd;
+    text-align: center;
+}
+
+.table-tab {
+    text-align: center;
+}
+
+.text-blank::placeholder {
+    font-weight: bold;
 }

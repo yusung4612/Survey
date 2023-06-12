@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -38,6 +39,7 @@ public class SecurityConfiguration {
     @Order(SecurityProperties.BASIC_AUTH_ORDER)
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors();
+
         http.addFilter(corsConfiguration.corsFilter());
         http.csrf().disable() // csrf 보안토큰 disable 처리
                 .httpBasic().disable()
@@ -55,24 +57,27 @@ public class SecurityConfiguration {
 
         http.authorizeHttpRequests(authorize -> authorize // 요청에 대한 사용권한 설정 //로그인, 회원가입 Api는 토큰이 없는 상태에서 요청이 들어오기 때문에 permitAll 설정
                 .requestMatchers(AUTH_WHITELIST).permitAll()
-//                .requestMatchers("/api/**").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-//                .requestMatchers("/api/admins/**").permitAll()
-                .requestMatchers("/", "/**").permitAll()
+                .requestMatchers("/").permitAll()
+                .requestMatchers("/surveys").hasAnyRole("USER")
                 .requestMatchers("/v2/api-docs",
-                        "/configuration/ui",
-                        "/configuration/security",
-                        "/swagger-ui.html",
-                        "/",
-                        "/**",
-                        "survey.html",
-                        "/submit/**",
-                        "/submit",
-                        "/webjars/**",
-                        "/v3/api-docs/**",
+//                        "/configuration/ui",
+//                        "/configuration/security",
+//                        "/swagger-ui.html",
+//                        "/",
+//                        "/**",
+//                        "survey.html",
+//                        "/submit/**",
+//                        "/submit",
+//                        "/webjars/**",
+//                        "/v3/api-docs/**",
+
                         "/swagger-ui/**").permitAll()
 
+
                 .anyRequest().authenticated()); // 나머지 API는 전부 인증 필요
+
+                 // 기본 로그인 폼 사용
 
         // JwtFilter를 addFilterBefore로 등록 했던 JwtSecurityConfig 클래스를 적용
 //                        .and()
@@ -81,4 +86,5 @@ public class SecurityConfiguration {
 //                .apply(new JwtSecurityConfiguration(SECRET_KEY, tokenProvider, userDetailsService));
         return http.build();
     }
+
 }
