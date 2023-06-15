@@ -22,31 +22,33 @@ public class Survey {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name="phoneNumber")
+    @Column(name = "phoneNumber", nullable = false, unique = true)
     private String phoneNumber;
 
-    @Column(name="gender")
+    @Column(name = "gender", nullable = false)
     private String gender;
 
-    @NotNull
-    @Column(name="product")
+    @Column(name = "product", nullable = false)
     private String product;
 
-    @Column(name="source")
+//    @Column(name = "otherProduct")
+//    private String otherProduct;
+
+    @Column(name = "source", nullable = false)
     private String source;
 
-    @Column(name="ageRange")
+    @Column(name = "ageRange", nullable = false)
     private String ageRange;
 
-    @Column(name="privacyConsent")
+    @Column(name = "privacyConsent", nullable = false)
     private boolean privacyConsent;
 
-    @Column(name="eventSmsConsent")
+    @Column(name = "eventSmsConsent", nullable = false)
     private String eventSmsConsent;
-
+}
 //    public Survey(String name, String phoneNumber, String gender, String product, String source,
 //                  String ageRange, boolean privacyConsent, boolean eventSmsConsent) {
 //        this.name = name;
@@ -71,7 +73,7 @@ public class Survey {
 //        return name;
 //    }
 //
-//    public void setName(String name) {
+//    public void setName(String name){
 //        this.name = name;
 //    }
 //
@@ -130,4 +132,3 @@ public class Survey {
 //    public void setEventSmsConsent(boolean eventSmsConsent) {
 //        this.eventSmsConsent = eventSmsConsent;
 //    }
-}

@@ -1,48 +1,116 @@
 .survey-body {
-    font-family: Arial, sans-serif;
-    /*font-family: Montserrat;*/
+    /*font-family: 'Netmarble';*/
     margin: 20px;
     /*background-color: #0060EA;*/
     /*background-color: #20dad8;*/
-    background-color: #1dcac0;
+    /*background-color: #1dcac0;*/
+    background-color: #00b5ac;
     background-image: url("templates/images/eb_logo.jpg");
     background-size: cover;
     background-position: center;
 }
+/*.container img{*/
+/*    position: absolute;*/
+/*    align-items: center;*/
+/*    width: 40%;*/
+/*    height: auto;*/
+/*    margin-bottom: 50px;*/
+/*}*/
+
+@font-face {
+    font-family: 'NotoSansKR';
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Netmarble';
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/netmarble/NetmarbleLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/netmarble/NetmarbleLight.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/netmarble/NetmarbleLight.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/netmarble/NetmarbleLight.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/netmarble/NetmarbleLight.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'ChosunGu';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/ChosunGu/ChosunGu.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/ChosunGu/ChosunGu.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/ChosunGu/ChosunGu.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/ChosunGu/ChosunGu.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/ChosunGu/ChosunGu.ttf') format("truetype");
+    font-display: swap;
+}
 
 h1 {
     text-align: center;
-    /*font-size: calc(18px + 1vw);*/
 }
-
-/*에브리봇 로고*/
-.title {
-    float: left;
-}
-
-.title img {
-    max-width: 80%;
+/*타이틀 이미지*/
+.title .title-img img {
+    width: 50%;
     height: auto;
     position: relative;
 }
 
+/*에브리봇 로고*/
+.title .logo-img img {
+    float: left;
+}
+@media (width: 320px) {
+    .title .logo-img img {
+        width: 30%; /* 원하는 너비로 설정 */
+    }
+}
+@media (width: 375px) {
+    .title .logo-img img {
+        max-width: 32%; /* 원하는 너비로 설정 */
+    }
+}
+@media (width: 425px) {
+    .title .logo-img img {
+        max-width: 34%; /* 원하는 너비로 설정 */
+    }
+}
+@media (max-width: 768px) {
+    .title .logo-img img {
+        max-width: 20%; /* 원하는 너비로 설정 */
+    }
+}
+@media (width: 1024px) {
+    .title .logo-img img {
+        max-width: 80%; /* 원하는 너비로 설정 */
+    }
+}
+
 /*부제목*/
 .container .sub-title1 {
-    font-family: 'NotoSansKR light';
-    font-weight: normal;
+    /*font-family: 'NotoSansKR';*/
+    font-family: 'Netmarble';
+    font-weight: 700;
     color: white;
     font-size: 60px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);*/
 }
 .container .sub-title2 {
-    font-family: 'NotoSansKR bold';
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    /*font-family: 'NotoSansKR';*/
+    font-family: 'Netmarble';
+    font-weight: bolder;
     color: white;
     font-size: 70px;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
+/*.container .sub-title2 span{*/
+/*    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);*/
+/*}*/
 
 @media (max-width: 768px) {
     .container .sub-title1 {
@@ -76,39 +144,19 @@ h1 {
     }
 }
 
-@font-face {
-    font-family: 'NotoSansKR';
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.eot?#iefix') format('embedded-opentype'),
-    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.woff2') format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.woff') format('woff'),
-    url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Thin.ttf') format("truetype");
-    font-display: swap;
-}
-@font-face {
-    font-family: 'BMJua';
-    font-weight: normal;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.eot?#iefix') format('embedded-opentype'),
-    url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.woff2') format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.woff') format('woff'),
-    url('https://cdn.jsdelivr.net/gh/webfontworld/BMJua/BMJua.ttf') format("truetype");
-    font-display: swap;
-}
+
 
 /*컨테이너 부분 시작*/
 .container {
     /*background-color: #0060EA;*/
     /*background-color: #20dad8;*/
-    background-color: #1dcac0;
+    background-color: #00b5ac;
 }
 
 /*컨테이너 테두리 부분 끝*/
 
 .end-date {
-    font-family: 'NotoSansKR medium';
+    font-family: 'Netmarble';
     color: white;
     text-align: right;
     font-size: 1.4em;
@@ -139,6 +187,13 @@ h1 {
     font-weight: bold;
 }
 
+/*각 문항 이미지*/
+.highlight img {
+    width: 23px;
+    margin-bottom: 7px;
+    height: auto;
+}
+
 /*성명, 휴대폰 번호 텍스트 입력 글씨*/
 .highlight input.text-blank {
     color: #000;
@@ -165,13 +220,12 @@ h1 {
 
 .highlight {
     background-color: white;
-    /*font-family: 'BMJua';*/
-    font-family: 'NotoSansKR';
-    font-weight: bold;
+    font-family: 'Netmarble';
+    font-weight: normal;
     padding: 20px; /* 내부 여백 설정 */
     margin-bottom: 20px; /* 아래쪽 간격 설정 */
     font-size: 0.9em;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.2);
     max-width: 900px;
 }
@@ -179,8 +233,9 @@ h1 {
 /*상당 공지사항 부분*/
 .highlight p {
     font-size: 16px;
+    margin-bottom: 7px;
 }
-@media (max-width: 320px) {
+@media (width: 320px) {
     .highlight p {
         font-size: 12px;
     }
@@ -192,7 +247,7 @@ h1 {
 }
 @media (max-width: 425px) {
     .highlight p {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 @media (width: 768px) {
@@ -212,11 +267,16 @@ h1 {
 }
 
 .highlight span {
-    font-weight: bolder;
-    text-decoration: underline;
+    font-weight: 900;
 }
+
+/*성명 부분*/
+.required-field {
+    color: red;
+}
+
 /*성별, 제품, 경로, 연령대*/
-.highlight label-title {
+.highlight label-title p {
     font-size: 17px;
     padding-bottom: 10px;
     display: block;
@@ -229,7 +289,7 @@ h1 {
 }
 @media (max-width: 375px) {
     .highlight label-title{
-        font-size: 16px;
+        font-size: 17px;
     }
 }
 @media (max-width: 425px) {
@@ -238,17 +298,17 @@ h1 {
     }
 }
 @media (width: 768px) {
-    .highlight label-title{
+    .highlight label-title p{
         font-size: 18px;
     }
 }
 @media (width: 1024px) {
-    .highlight label-title{
+    .highlight label-title p{
         font-size: 20px;
     }
 }
 @media (width: 1440px) {
-    .highlight label-title{
+    .highlight label-title p{
         font-size: 20px;
     }
 }
@@ -256,6 +316,8 @@ h1 {
 /*성명, 휴대폰 번호*/
 .highlight label p {
     font-size: 17px;
+    font-weight: bold;
+    /*margin-left: 30px;*/
 }
 @media (max-width: 320px) {
     .highlight label p {
@@ -297,26 +359,23 @@ h1 {
 .highlight .input-style label {
     font-size: 1em;
     font-weight: bold;
-    font-family: 'NotoSansKR';
+    font-family: 'Netmarble';
 }
 
 .highlight .form-group1 p {
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     font-size: 15px;
 }
-
 @media (max-width: 768px) {
     .highlight .form-group1 p {
         font-size: 14px; /* 작은 화면 크기에서의 글꼴 크기 */
     }
 }
-
 @media (max-width: 576px) {
     .highlight .form-group1 p {
         font-size: 13px; /* 매우 작은 화면 크기에서의 글꼴 크기 */
     }
 }
-
 @media (max-width: 425px) {
     .highlight .form-group1 p {
         font-size: 12px; /* 매우 작은 화면 크기에서의 글꼴 크기 */
@@ -325,15 +384,12 @@ h1 {
 
 .highlight .form-group1 label {
     font-size: 17px;
-    color: red;
 }
-
 @media (max-width: 768px) {
     .highlight .form-group1 label {
         font-size: 16px; /* 작은 화면 크기에서의 글꼴 크기 */
     }
 }
-
 @media (max-width: 576px) {
     .highlight .form-group1 label {
         font-size: 15px; /* 매우 작은 화면 크기에서의 글꼴 크기 */
@@ -403,6 +459,9 @@ button[type="submit"]:hover {
     display: flex;
     justify-content: center;
 }
+.form-check1 .form-check2 label {
+    font-weight: bolder;
+}
 
 .form-check2 {
     display: flex;
@@ -432,11 +491,6 @@ button[type="submit"]:hover {
     align-items: center;
 }
 
-.event-text {
-    /*padding: 20px;*/
-    /*background: linear-gradient(to bottom, #f2f2f2, white);*/
-}
-
 /* 남성, 여성 선택에서 남성 부분 margin */
 .form-check-input[type="radio"][name="gender"][value="male"] + .form-check-label {
     margin-right: 50px;
@@ -449,6 +503,43 @@ button[type="submit"]:hover {
 }
 
 /*이벤트 부분*/
+#gift {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#gift p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*.highlight .gift {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+.highlight .event-text p{
+    font-size: 16px;
+}
+@media (max-width: 320px) {
+    .highlight .event-text p {
+        font-size: 15px;
+    }
+}
+@media (width: 1024px) {
+    .highlight .event-text p {
+        font-size: 19px;
+    }
+}
+@media (width: 1440px) {
+    .highlight .event-text p {
+        font-size: 20px;
+    }
+}
+
 .form-group-event {
     text-align: left;
     margin-top: 8px;
@@ -460,11 +551,36 @@ button[type="submit"]:hover {
 }
 
 .event-title {
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
+    /*text-align: center;*/
     font-weight: bold;
-    text-align: left;
     margin-bottom: 20px;
+}
+@media (max-width: 320px) {
+    .event-title {
+        font-size: 15px;
+    }
+}
+@media (max-width: 425px) {
+    .event-title {
+        font-size: 14px;
+    }
+}
+@media (width: 768px) {
+    .event-title {
+        font-size: 16px;
+    }
+}
+@media (width: 1024px) {
+    .event-title {
+        font-size: 19px;
+    }
+}
+@media (width: 1440px) {
+    .event-title {
+        font-size: 20px;
+    }
 }
 
 .event-subtitle {
@@ -516,6 +632,10 @@ button[type="submit"]:hover {
     }
 }
 
+.disagree {
+    color: red;
+}
+
 .form-group-event label .event-subtitle {
     display: flex;
     align-items: center;
@@ -526,13 +646,15 @@ button[type="submit"]:hover {
     margin-left: auto; /* 왼쪽 여백을 자동으로 설정하여 가운데 정렬 */
     margin-right: auto; /* 오른쪽 여백을 자동으로 설정하여 가운데 정렬 */
     border-radius: 40px;
-    font-family: 'NotoSansKR';
+    font-family: 'Netmarble';
     font-weight: bolder;
     font-size: 20px;
     max-width: 200px;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+
 
 /*리스트 페이지 여기서 부터*/
 .list-body {

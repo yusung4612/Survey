@@ -17,43 +17,49 @@
 <br><br>
 <h1>관심 고객 EVENT 설문조사 참여자 목록</h1>
 <br><br>
-    <div class="table-wrapper">
-<!--        <p>총 참여자 수: <span th:text="${#lists.size(survey)}"></span></p>-->
-        <table>
-            <thead>
-            <tr>
-                <th class="customer" style="background-color: white" colspan="9">총 참여자 수: <span th:text="${#lists.size(survey)}"></span></th>
-            </tr>
-            <tr class="table-tab">
-                <th>번호</th>
-                <th>이름</th>
-                <th>휴대전화 번호</th>
-                <th>성별</th>
-                <th>관심 제품</th>
-                <th>접근 경로</th>
-                <th>연령대</th>
-                <th>개인정보 활용 동의</th>
-                <th>마케팅 수신</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="survey, iterStat : ${survey}">
-                <td th:text="${iterStat.count}"></td>
-                <td th:text="${survey.name}"></td>
-                <td th:text="${survey.phoneNumber}"></td>
-                <td th:text="${survey.gender}"></td>
-                <td th:text="${survey.product}"></td>
-                <td th:text="${survey.source}"></td>
-                <td th:text="${survey.ageRange}"></td>
-<!--                <td th:text="${survey.privacyConsent}"></td>-->
-                <td>
-                    <span th:if="${survey.privacyConsent}">동의</span>
-                    <span th:unless="${survey.privacyConsent}"></span>
-                </td>
-                <td th:text="${survey.eventSmsConsent}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="table-wrapper">
+    <!--        <p>총 참여자 수: <span th:text="${#lists.size(survey)}"></span></p>-->
+    <table>
+        <thead>
+        <tr>
+            <th class="customer" style="background-color: white" colspan="9">총 참여자 수: <span
+                    th:text="${#lists.size(survey)}"></span></th>
+        </tr>
+        <tr class="table-tab">
+            <th>번호</th>
+            <th>이름</th>
+            <th>휴대전화 번호</th>
+            <th>성별</th>
+            <th>관심 제품</th>
+            <th>접근 경로</th>
+            <th>연령대</th>
+            <th>개인정보 활용 동의</th>
+            <th>마케팅 수신</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="survey, iterStat : ${survey}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${survey.name}"></td>
+            <td th:text="${survey.phoneNumber}"></td>
+            <td th:text="${survey.gender}"></td>
+                            <td th:text="${survey.product}">
+<!--            <td>-->
+    <span th:if="${survey.product == '기타'}">
+        <span th:text="'기타: ' + ${survey.product}"></span>
+    </span>
+                <span th:unless="${survey.product == '기타'}" th:text="${survey.product}"></span>
+            </td>
+            <td th:text="${survey.source}"></td>
+            <td th:text="${survey.ageRange}"></td>
+            <td>
+                <span th:if="${survey.privacyConsent}">동의</span>
+                <span th:unless="${survey.privacyConsent}"></span>
+            </td>
+            <td th:text="${survey.eventSmsConsent}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

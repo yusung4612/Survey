@@ -2,15 +2,14 @@ package com.example.event.controller;
 
 import com.example.event.dto.SurveyDto;
 import com.example.event.entity.Survey;
+import com.example.event.exception.ErrorCode;
 import com.example.event.repository.SurveyRepository;
-import com.example.event.service.SurveyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -33,7 +32,19 @@ public class SurveyController {
     }
 
     @PostMapping("/submit")
-    public String submitForm(@ModelAttribute SurveyDto surveyDto) {
+    public String submitForm(@ModelAttribute SurveyDto surveyDto) throws Exception {
+
+        if (null == surveyDto.getName() ||
+                null == surveyDto.getPhoneNumber() ||
+                null == surveyDto.getGender() ||
+                null == surveyDto.getProduct() ||
+                null == surveyDto.getSource() ||
+                null == surveyDto.getAgeRange() ||
+                !surveyDto.isPrivacyConsent() ||
+                null == surveyDto.getEventSmsConsent()) {
+            throw new Exception(ErrorCode.NOT_BLANK.getMessage());
+        }
+
         Survey survey = new Survey();
         survey.setName(surveyDto.getName());
         survey.setPhoneNumber(surveyDto.getPhoneNumber());

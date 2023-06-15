@@ -17,6 +17,7 @@ public class SurveyDto {
     private String phoneNumber;
     private String gender;
     private String product;
+//    private String otherProduct;
     private String source;
     private String ageRange;
     private boolean privacyConsent;
